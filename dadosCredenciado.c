@@ -12,6 +12,23 @@
 		
 }
 
+	Veiculo lerVeiculo() {
+	Veiculo v;
+	printf("Placa:");
+	scanf("%s",&v.placa);
+		
+	printf("Modelo:");
+	scanf(" %s",&v.modelo);
+			
+	printf("Ano:");
+	scanf("%d",&v.ano);
+			
+	printf("Cor:");
+	scanf(" %s",&v.cor);
+	return v;
+	
+}
+
 int main() {
 	int numero,cep,ddd,dddTel,telRes,telCel,cpf,cnpj,dataNasc,contatoResp,telCom,data;
 	int inscEstadual,inscMunicipal,cnae,qtdVeiculos,i;
@@ -151,23 +168,6 @@ int main() {
 	printf("Quantos veiculos deseja cadastrar?");
 	scanf("%d",&qtdVeiculos);
 	
-	Veiculo lerVeiculo() {
-	Veiculo v;
-	printf("Placa:");
-	scanf("%s",&v.placa);
-		
-	printf("Modelo:");
-	scanf(" %s",&v.modelo);
-			
-	printf("Ano:");
-	scanf("%d",&v.ano);
-			
-	printf("Cor:");
-	scanf(" %s",&v.cor);
-	return v;
-	
-}
-
 	
 	Veiculo  veiculos[qtdVeiculos];
 	
