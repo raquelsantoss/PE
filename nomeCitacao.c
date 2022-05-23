@@ -1,41 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="nomeCitacao" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/nomeCitacao" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/nomeCitacao" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-		</Compiler>
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+
+void concatenarLetra(char texto[], char letra){
+    size_t tamanho = strlen(texto);
+    texto[tamanho] = letra;
+    texto[tamanho + 1] = '\0'; //recolocar terminador
+}
+
+int main(){
+
+    char nome[50];
+    char saida[50] = "";
+    int tamanhoNome = 0, espaco = 0;
+
+    printf("Nome:");
+    fgets(nome,50,stdin);
+
+    tamanhoNome = strlen(nome);
+
+    for(int count = 0; count < tamanhoNome; count++){
+        if(nome[count]==' '){
+            espaco = count;
+        }
+    }
+
+    for(int i = espaco + 1; i < tamanhoNome; i++){
+        printf("%c",toupper(nome[i]));
+    }
+
+    printf(", ");
+
+    for(int count = 0; count < tamanhoNome; count++) {
+        if(count == 0) {
+            concatenarLetra(saida, toupper(nome[0]));
+        }else if(nome[count] == ' '){
+            concatenarLetra(saida, toupper(nome[count + 1]));
+        }
+    }
+
+    for(int count = 0; count < strlen(saida) - 1; count++) {
+        printf("%c. ", saida[count]);
+    }
+
+    return 0;
+}
