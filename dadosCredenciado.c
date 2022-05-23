@@ -180,12 +180,8 @@ int main() {
 	for(i=0;i<qtdVeiculos;i++)
 		imprimirVeiculo(veiculos[i]);
 		
-	
-	
-}
-
-
-
-	
 	return 0;
+	
 }
+
+
