@@ -181,12 +181,7 @@ int main() {
 		imprimirVeiculo(veiculos[i]);
 		
 	
-	void imprimirVeiculo(Veiculo v){					
-		printf("\n\nPlaca: %s\n",v.placa);			
-		printf("Modelo: %s\n",v.modelo);			
-		printf("Ano: %d\n",v.ano);
-		printf("Cor: %s\n",v.cor);
-		
+	
 }
 
 
